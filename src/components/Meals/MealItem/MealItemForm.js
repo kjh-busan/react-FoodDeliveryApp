@@ -23,7 +23,7 @@ const MealItemForm = (props) => {
     }
     setAmountIsValid(true);
     props.onAddToCart(enteredAmountNumber);
-    inputRef.current.value = 0;
+    // inputRef.current.value = 0;
   };
   // console.log(amountIsValid);
 
@@ -33,7 +33,7 @@ const MealItemForm = (props) => {
         ref={inputRef}
         label="Amount"
         input={{
-          id: "amout_" + props.id,
+          id: "amount_" + props.id,
           type: "number",
           min: "1",
           max: "5",

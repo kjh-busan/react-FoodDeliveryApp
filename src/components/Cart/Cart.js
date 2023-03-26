@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import CartItem from "./CartItem";
 import Modal from "../UI/Modal";
+import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
 
@@ -15,31 +15,21 @@ const Cart = (props) => {
 
   const cartItemAddHandler = (item) => {};
 
-  // const cartItems = () => (
-  //   <ul className={classes["cart-items"]}>
-  //     {cartCtx.items.map((item) => (
-  //       <li>
-  //         <CartItem
-  //           key={item.id}
-  //           name={item.name}
-  //           amount={item.amount}
-  //           price={item.price}
-  //           onRemove={cartItemRemoveHandler.bind(null, item.id)}
-  //           onAdd={cartItemAddHandler.bind(null, item)}
-  //         />
-  //       </li>
-  //     ))}
-  //   </ul>
-  // );
-
-  const cartItems = () => (
+  const cartItems = (
     <ul className={classes["cart-items"]}>
-      {cartCtx.items.map((item) => console.log(item.name))}
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.id}
+          name={item.name}
+          amount={item.amount}
+          price={item.price}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        />
+      ))}
     </ul>
   );
 
-  // const list = cartCtx.items.map((item) => item.name);
-  // console.log(list);
   return (
     <Modal onClose={props.onClose}>
       {cartItems}
